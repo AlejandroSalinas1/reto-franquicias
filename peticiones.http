@@ -1,0 +1,63 @@
+### 1. Crear franquicia
+POST http://localhost:8080/api/franquicias
+Content-Type: application/json
+
+{
+  "nombre": "Antigüedades Colombia"
+}
+
+### 2. Agregar sucursal a la franquicia 1
+POST http://localhost:8080/api/franquicias/1/sucursales
+Content-Type: application/json
+
+{
+  "nombre": "Sucursal Medellín"
+}
+
+### 3. Agregar producto a la sucursal 1
+POST http://localhost:8080/api/sucursales/1/productos
+Content-Type: application/json
+
+{
+  "nombre": "Radio antiguo",
+  "stock": 15
+}
+
+### 4. Agregar otro producto
+POST http://localhost:8080/api/sucursales/1/productos
+Content-Type: application/json
+
+{
+  "nombre": "Reloj de colección",
+  "stock": 35
+}
+
+### 5. Actualizar stock del producto 1
+PATCH http://localhost:8080/api/productos/1/stock
+Content-Type: application/json
+
+{
+  "stock": 25
+}
+
+### 6. Consultar producto con mayor stock por cada sucursal
+GET http://localhost:8080/api/franquicias/1/productos-mayor-stock
+
+### 7. Cambiar nombre de franquicia (punto extra)
+PATCH http://localhost:8080/api/franquicias/1/nombre
+Content-Type: application/json
+
+{
+  "nombre": "Antigüedades Nacional"
+}
+
+### 8. Cambiar nombre de producto (punto extra)
+PATCH http://localhost:8080/api/productos/1/nombre
+Content-Type: application/json
+
+{
+  "nombre": "Radio clásico"
+}
+
+### 9. Eliminar producto
+DELETE http://localhost:8080/api/sucursales/1/productos/1
